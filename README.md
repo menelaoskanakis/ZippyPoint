@@ -6,8 +6,7 @@ The efficient inference of ZippyPoint relies on the [Larq Compute Engine (LCE)](
 
 Slow FP32 model        |  Fast mixed-precision model (ours)
 :----------------------------------------------------------:|:----------------------------------------------------------:
-<img src="assets/teaser_slow.png" align="center" width=450>   |  <img src='assets/teaser_fast.png' align="center" width=450> 
-
+<img src="assets/teaser_slow.png" align="center" width=300>   |  <img src='assets/teaser_fast.png' align="center" width=300>
 
 ## Abstract
 
