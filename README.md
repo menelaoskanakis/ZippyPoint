@@ -1,38 +1,52 @@
 # ZippyPoint: Fast Interest Point Detection, Description, and Matching through Mixed Precision Discretization
 
-This is the official repository for the paper [ZippyPoint: Fast Interest Point Detection, Description, and Matching through Mixed Precision Discretization](https://arxiv.org/pdf/2203.03610.pdf).
-It contains the ZippyPoint network, implemented in [TensorFlow](https://www.tensorflow.org/) and [Larq](https://github.com/larq/larq). 
-The efficient inference of ZippyPoint relies on the [Larq Compute Engine (LCE)](https://github.com/larq/compute-engine) 
+This is the official repository of [ZippyPoint](https://arxiv.org/pdf/2203.03610.pdf).
+ZippyPoint is an efficient detection and description neural networks for mobile or robot platforms.
+We utilize network quantization to enable realtime inference on computationally limited platforms.
+In addition, we propose the use of a binary descriptor normalization layer during the network optimization,
+enabling the generation of distinctive binary descriptors, 
+essential for efficient descriptor matching.
 
-Slow FP32 model        |  Fast mixed-precision model (ours)
-:----------------------------------------------------------:|:----------------------------------------------------------:
-<img src="assets/teaser_slow.png" align="center" width=450>   |  <img src='assets/teaser_fast.png' align="center" width=450> 
+<p align="center">
+<img src="assets/figs/ZippyPoint_teaser.png" width="750">
+</p>
 
+This repository contains the "fake" quantized model based on [TensorFlow](https://www.tensorflow.org/) and [Larq](https://github.com/larq/larq),
+alongside an image matching demo.
+The generation of the quantization model relies on the [Larq Compute Engine (LCE)](https://github.com/larq/compute-engine).
+Please refer to [LCE](https://github.com/larq/compute-engine) for instructions on how to convert our ZippyPoint model
+for efficient deployment on your hardware platform of choice.
 
-## Abstract
+## Dependencies
 
-Efficient detection and description of geometric regions in images is a prerequisite in visual robotic systems for localization and mapping.
-Such systems still rely on traditional hand-crafted methods for efficient generation of lightweight descriptors, a common limitation of the more powerful neural network models that come with high compute and specific hardware requirements.
-In this paper we focus on the adaptations required by detection and description neural networks to enable their use in mobile or robot platforms. 
-To that end, we investigate and adapt network quantization techniques for enabling real-time inference. 
-In addition, we revisit common practices in descriptor quantization and propose the use of a binary descriptor normalization layer, enabling the generation of distinctive binary descriptors with a constant number of ones.
-ZippyPoint, our efficient network, runs at 47.2 FPS on the Apple M1 CPU.
-This is up to 5x faster than the equivalent full-precision model while yielding minor performance degradation.
-ZippyPoint consistently outperforms alternative binary detection and descriptor methods in two tasks, homography estimation and visual localization. 
+* Python 3 >= 3.8
+* TensorFlow >= 2.4
+* Larq >= 0.12.2
+* OpenCV >= 3.4
+* Matplotlib >= 3.1
+* NumPy >= 1.18
 
-## Installation / Setup
+## Demo
 
-TODO...
+Simply run the following command:
+
+```
+python demo.py --output_dir ./tmpdir/
+```
 
 ## Citation
 
 If you use this code or models, please consider citing our paper:
 
 ```
-@article{maurer2022zippypoint,
+@article{kanakis2022zippypoint,
   title={ZippyPoint: Fast Interest Point Detection, Description, and Matching through Mixed Precision Discretization},
-  author={Maurer, Simon and Kanakis, Menelaos and Spallanzani, Matteo and Chhatkuli, Ajad and Van Gool, Luc},
+  author={Kanakis, Menelaos and Maurer, Simon and Spallanzani, Matteo and Chhatkuli, Ajad and Van Gool, Luc},
   journal={arXiv preprint arXiv:2203.03610},
   year={2022}
 }
 ```
+
+## Acknoledgements
+
+This demo is based on that of [SuperGlue](https://github.com/magicleap/SuperGluePretrainedNetwork)
