@@ -161,11 +161,8 @@ class ZippyPoint(tf.keras.Model):
         return scores, positions, descriptors
 
 
-def load_ZippyPoint(pretrained_path, model_config={}, gpu = True, input_shape = [240, 320]):
+def load_ZippyPoint(pretrained_path, model_config={}, input_shape = [240, 320]):
     device_id = tf.config.list_logical_devices('CPU')[0].name
-    if gpu:
-        devices = tf.config.list_logical_devices('GPU')
-        device_id = devices[0].name if len(devices) > 0 else device_id
 
     with tf.device(device_id):
         # Weights dir

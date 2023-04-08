@@ -8,6 +8,7 @@ from utils.utils import load_img, get_img_paths, check_args, make_matching_plot_
 from models.zippypoint import load_ZippyPoint
 from models.postprocessing import PostProcessing
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='ZippyPoint demo',
@@ -54,9 +55,6 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     args = check_args(args)
-
-    device = 'cpu'
-    print('Running inference on device \"{}\"'.format(device))
 
     config_superpoint = {
             'nms_radius': args.nms_window,
