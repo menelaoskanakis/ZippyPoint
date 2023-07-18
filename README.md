@@ -39,11 +39,12 @@ python demo.py --output_dir ./tmpdir/
 If you use this code or models, please consider citing our paper:
 
 ```
-@article{kanakis2022zippypoint,
+@inproceedings{kanakis2023zippypoint,
   title={ZippyPoint: Fast Interest Point Detection, Description, and Matching through Mixed Precision Discretization},
   author={Kanakis, Menelaos and Maurer, Simon and Spallanzani, Matteo and Chhatkuli, Ajad and Van Gool, Luc},
-  journal={arXiv preprint arXiv:2203.03610},
-  year={2022}
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={6113--6122},
+  year={2023}
 }
 ```
 
