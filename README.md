@@ -47,6 +47,6 @@ If you use this code or models, please consider citing our paper:
 }
 ```
 
-## Acknoledgements
+## Acknowledgements
 
 This demo is based on that of [SuperGlue](https://github.com/magicleap/SuperGluePretrainedNetwork)
